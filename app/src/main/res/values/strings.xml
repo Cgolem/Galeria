@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Galeria</string>
+
+    <!-- Botones -->
+    <string name="btn_galeria">Galería</string>
+    <string name="btn_camara">Cámara</string>
+
+
+    <!-- Descipciones -->
+    <string name="img_descripcion">Imagen base</string>
+</resources>
