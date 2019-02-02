@@ -1,6 +1,7 @@
 package com.example.galeria;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
             //Asignamos a nuestro imageView la imagen seleccionada en la galaería
             imgVista.setImageURI(data.getData());
         }
+
+        if( requestCode == 200 && requestCode == RESULT_OK) {
+            //Asignamos a nuestro imageView la imagen capturada con la cámara
+            imgVista.setImageBitmap((Bitmap) data.getExtras().get("data"));
+        }
     }
 
     /*
@@ -51,5 +57,10 @@ public class MainActivity extends AppCompatActivity {
     /*
      * @description: Método con la funcionalidad del botón para abrir la cámara
      * */
-    public void abrirCamara(View view) {}
+    public void abrirCamara(View view) {
+        //Generamos nuestro intent e indicamos que queremos usar la acción de captura de imagen
+        Intent capturaImagen = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        startActivityForResult(capturaImagen, 200);
+    }
 }
